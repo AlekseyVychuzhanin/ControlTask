@@ -4,37 +4,22 @@
 // string[] stringArray = {"Russia", "Denmark", "Kazan"};
 // string[] stringArray = {"1234", "1567", "-2", "computer science"};
 
-string[] CreateUserStringArray()
+string[] CreateUserStringArray(int length)
 {
-    Console.Write("Введите размер массива: ");
-    int sizeArray = Convert.ToInt32(Console.ReadLine());
-    while(sizeArray < 0)
-    {
-        Console.WriteLine("\nРазмер массива - это целое положительное число.");
-        Console.Write("\nВведите новое значение: ");
-        sizeArray = Convert.ToInt32(Console.ReadLine());
-    }
+    string[] array = new string[length];
 
-    string[] array = new string[sizeArray];
-
-    if(sizeArray == 0) 
-        Console.WriteLine("\nРазмер массива = 0, массив пустой!");
-    else 
+    for(int i = 0; i < length; i++)
     {
-        for(int i = 0; i < sizeArray; i++)
+        Console.Write("\nВведите элемент массива: ");
+        string? value = Console.ReadLine();
+        while(value == String.Empty)
         {
-            Console.Write("\nВведите элемент массива: ");
-            string? value = Console.ReadLine();
-            while(value == String.Empty)
-            {
-                Console.Write("\nВы не ввели значение. Введите элемент массива: ");
-                value = Console.ReadLine();
-            }
-            if(value != null && value != String.Empty) array[i] = value;
+            Console.Write("\nВы не ввели значение. Введите элемент массива: ");
+            value = Console.ReadLine();
         }
+        if(value != null && value != String.Empty) array[i] = value;
     }
     return array;
-
 }
 
 string[] CreateStringArray(string[] array)
@@ -68,12 +53,32 @@ void PrintStringArray(string[] array)
     Console.WriteLine();
 }
 
-string[] stringArray = CreateUserStringArray();
-PrintStringArray(stringArray);
-if(stringArray.Length > 0)
+try
 {
-    string[] newStringArray = CreateStringArray(stringArray);
-    PrintStringArray(newStringArray);
+    Console.Write("Введите размер массива: ");
+    int sizeArray = Convert.ToInt32(Console.ReadLine());
+    while(sizeArray < 0)
+    {
+        Console.WriteLine("\nРазмер массива - это целое положительное число.");
+        Console.Write("\nВведите новое значение: ");
+        sizeArray = Convert.ToInt32(Console.ReadLine());
+    }
+    if(sizeArray == 0) 
+        Console.WriteLine("\nРазмер массива = 0, массив пустой!");
+    else 
+    {
+        string[] stringArray = CreateUserStringArray(sizeArray);
+        PrintStringArray(stringArray);
+        if(stringArray.Length > 0)
+        {
+            string[] newStringArray = CreateStringArray(stringArray);
+            PrintStringArray(newStringArray);
+        }
+    }
+}
+catch(Exception)
+{
+    Console.WriteLine("\nНедопустимый ввод. Конвертация невозможна!");
 }
 
 Console.ReadLine();
