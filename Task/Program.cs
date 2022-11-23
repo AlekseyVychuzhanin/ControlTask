@@ -17,7 +17,7 @@ string[] CreateUserStringArray(int length)
             Console.Write("\nВы не ввели значение. Введите элемент массива: ");
             value = Console.ReadLine();
         }
-        if(value != null && value != String.Empty) array[i] = value;
+        if(value != null) array[i] = value;
     }
     return array;
 }
