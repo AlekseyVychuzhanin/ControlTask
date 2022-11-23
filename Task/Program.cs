@@ -37,7 +37,6 @@ string[] CreateUserStringArray()
 
 }
 
-
 string[] CreateStringArray(string[] array)
 {
     int lengthNewArray = 0;
