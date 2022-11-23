@@ -6,14 +6,12 @@ string[] stringArray = {"1234", "1567", "-2", "computer science"};
 
 string[] CreateNewStringArray(string[] array)
 {
-    int length = 0;
+    int lengthNewArray = 0;
     for(int i = 0; i < array.Length;i++)
-    {
-         if(array[i].Length <= 3) length++;
-    }
+        if(array[i].Length <= 3) lengthNewArray++;
 
-    string[] newArray = new string[length];
-
+    string[] newArray = new string[lengthNewArray];
+    
     for(int j = 0, m = 0; j < array.Length; j++)
     {
         if(array[j].Length <= 3)
@@ -28,7 +26,6 @@ string[] CreateNewStringArray(string[] array)
 void PrintStringArray(string[] array)
 {
     Console.Write("Массив строк: [");
-    
     for(int i = 0; i < array.Length; i++)
     {
         Console.Write("'" + array[i] + "'");
