@@ -25,19 +25,20 @@ string[] CreateUserStringArray()
         {
             Console.Write("\nВведите элемент массива: ");
             string? value = Console.ReadLine();
-            while(value == null || value == String.Empty)
+            while(value == String.Empty)
             {
                 Console.Write("\nВы не ввели значение. Введите элемент массива: ");
                 value = Console.ReadLine();
             }
-            if(value!= null && value != String.Empty) array[i] = value;
+            if(value != null && value != String.Empty) array[i] = value;
         }
     }
     return array;
+
 }
 
 
-string[] CreateNewStringArray(string[] array)
+string[] CreateStringArray(string[] array)
 {
     int lengthNewArray = 0;
     for(int i = 0; i < array.Length;i++)
@@ -45,12 +46,12 @@ string[] CreateNewStringArray(string[] array)
 
     string[] newArray = new string[lengthNewArray];
 
-    for(int j = 0, m = 0; j < array.Length; j++)
+    for(int i = 0, j = 0; i < array.Length; i++)
     {
-        if(array[j].Length <= 3)
+        if(array[i].Length <= 3)
         {
-            newArray[m] = array[j];
-            m++;
+            newArray[j] = array[i];
+            j++;
         }
     }
     return newArray;
@@ -68,13 +69,11 @@ void PrintStringArray(string[] array)
     Console.WriteLine();
 }
 
-//Console.Write("Введите размер массива: ");
-//int sizeArray = Convert.ToInt32(Console.ReadLine());
 string[] stringArray = CreateUserStringArray();
 PrintStringArray(stringArray);
 if(stringArray.Length > 0)
 {
-    string[] newStringArray = CreateNewStringArray(stringArray);
+    string[] newStringArray = CreateStringArray(stringArray);
     PrintStringArray(newStringArray);
 }
 
