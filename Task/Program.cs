@@ -49,7 +49,7 @@ void PrintStringArray(string[] array)
         Console.Write("'" + array[i] + "'");
         if(i < array.Length -1) Console.Write(",");
     }
-    Console.Write("].");
+    Console.Write("]");
     Console.WriteLine();
 }
 
@@ -64,7 +64,7 @@ try
         sizeArray = Convert.ToInt32(Console.ReadLine());
     }
     if(sizeArray == 0) 
-        Console.WriteLine("\nРазмер массива = 0, массив пустой!");
+        Console.WriteLine("\nРазмер массива = 0. Массив пустой: []");
     else 
     {
         string[] stringArray = CreateUserStringArray(sizeArray);
