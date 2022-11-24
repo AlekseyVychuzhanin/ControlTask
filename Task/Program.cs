@@ -69,11 +69,8 @@ try
     {
         string[] stringArray = CreateUserStringArray(sizeArray);
         PrintStringArray(stringArray);
-        if(stringArray.Length > 0)
-        {
-            string[] newStringArray = CreateStringArray(stringArray);
-            PrintStringArray(newStringArray);
-        }
+        string[] newStringArray = CreateStringArray(stringArray);
+        PrintStringArray(newStringArray);
     }
 }
 catch(Exception)
